@@ -1,0 +1,3 @@
+Sample	aligned_reads	ambig_reads	discarded_reads	meth_chg	meth_chh	meth_cpg	no_alignments	percent_aligned	percent_chg_meth	percent_chh_meth	percent_cpg_meth	strand_ctob	strand_ctot	strand_directional	strand_ob	strand_ot	total_c	total_reads	unmeth_chg	unmeth_chh	unmeth_cpg
+PEsample_wgbs_1_val_1	545.0	0.0	0.0	52.0	136.0	1488.0	868.0	38.57041755130927	0.6	0.6	68.4	0.0	0.0	directional	278.0	267.0	34071.0	1413.0	8942.0	22765.0	688.0
+SEsample	792.0	0.0	0.0	58.0	142.0	779.0	1222.0	39.32472691161867	1.2	1.2	66.9	0.0	0.0	directional	442.0	350.0	18280.0	2014.0	4768.0	12147.0	386.0

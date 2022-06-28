@@ -1,0 +1,173 @@
+---------- [2022-06-25 16:20:41] Starting Now ----------
+========= Given Parameters ==========
+$reportFile
+[1] "/home/data/t020329/ngs/new_meth/workflow/report_templates/index.Rmd"
+
+$outFile
+[1] "/home/data/t020329/ngs/new_meth/results/Reports/sample_reports/SEsample_se_bt2.sorted.deduped_chg_methylKit_hg19_final.html"
+
+$workdir
+[1] "/home/data/t020329/ngs/new_meth/results/Reports/sample_reports"
+
+$bibTexFile
+[1] "report_templates/reports.bib"
+
+$prefix
+[1] "SEsample_se_bt2.sorted.deduped_chg_methylKit_hg19_methylKit"
+
+$report.params
+[1] "{\"sampleid\":\"SEsample_se_bt2.sorted.deduped\",\"assembly\":\"hg19\",\"context\":\"chg\",\"bigwigFile\":\"/home/data/t020329/ngs/new_meth/results/07_bigwig_files/SEsample_se_bt2.sorted.deduped.chg_methylKit.bw\",\"inBam\":\"/home/data/t020329/ngs/new_meth/results/05_sorting_deduplication/SEsample_se_bt2.sorted.deduped.sorted.markdup.bam\",\"methCall_tabixfile\":\"/home/data/t020329/ngs/new_meth/results/06_methyl_calls/methylKit/tabix_chg/SEsample_se_bt2.sorted.deduped_chg.txt.bgz\",\"methSegBed\":\"/home/data/t020329/ngs/new_meth/results/08_segmentation/SEsample_se_bt2.sorted.deduped_chg_methylKit.meth_segments.bed\",\"methSegPng\":\"/home/data/t020329/ngs/new_meth/results/08_segmentation/SEsample_se_bt2.sorted.deduped_chg_methylKit.meth_segments.png\",\"mincov\":\"10\",\"minqual\":\"10\",\"TSS_plotlength\":\"5000\",\"source_dir\":\"/home/data/t020329/ngs/new_meth/sra\",\"out_dir\":\"/home/data/t020329/ngs/new_meth/results\",\"scripts_dir\":\"/home/data/t020329/ngs/new_meth/workflow/scripts\",\"refGenes_bedfile\":\"\",\"webfetch\":\"False\"}"
+
+$logFile
+[1] "/home/data/t020329/ngs/new_meth/results/Reports/sample_reports/SEsample_se_bt2.sorted.deduped_chg_methylKit_hg19_final.log"
+
+====================================
+Warning message:
+Missing values for parameters: MethCall, AnnotateDiffMeth, AnnotateSegments, DiffMeth, Segmentation 
+2022-06-25 16:20:41 
+
+ Rendering report: index.Rmd 
+ from template: SEsample_se_bt2.sorted.deduped_chg_methylKit_hg19_final.html 
+ into directory: /home/data/t020329/ngs/new_meth/results/Reports/sample_reports 
+
+rendering report from template: /home/data/t020329/ngs/new_meth/workflow/report_templates/index.Rmd
+
+
+processing file: index.Rmd
+  |                                                                              |                                                                      |   0%  |                                                                              |.                                                                     |   2%
+   inline R code fragments
+
+  |                                                                              |..                                                                    |   3%
+label: global_options (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                              |...                                                                   |   5%
+  |                                                                              |....                                                                  |   6%
+  |                                                                              |.....                                                                 |   8%
+  |                                                                              |......                                                                |   9%
+  |                                                                              |........                                                              |  11%
+  |                                                                              |.........                                                             |  12%
+  |                                                                              |..........                                                            |  14%
+  |                                                                              |...........                                                           |  15%
+Loading required package: grid
+Loading required package: GenomicRanges
+Loading required package: stats4
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: 'BiocGenerics'
+
+The following objects are masked from 'package:parallel':
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from 'package:stats':
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from 'package:base':
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+    dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+    grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+    union, unique, unsplit, which.max, which.min
+
+Loading required package: S4Vectors
+
+Attaching package: 'S4Vectors'
+
+The following object is masked from 'package:base':
+
+    expand.grid
+
+Loading required package: IRanges
+Loading required package: GenomeInfoDb
+
+Attaching package: 'methylKit'
+
+The following objects are masked from 'package:genomation':
+
+    getFeatsWithTargetsStats, getFlanks, getMembers,
+    getTargetAnnotationStats, plotTargetAnnotation
+
+  |                                                                              |............                                                          |  17%
+  |                                                                              |.............                                                         |  18%
+  |                                                                              |..............                                                        |  20%
+  |                                                                              |...............                                                       |  22%
+  |                                                                              |................                                                      |  23%
+  |                                                                              |.................                                                     |  25%
+  |                                                                              |..................                                                    |  26%
+  |                                                                              |...................                                                   |  28%
+  |                                                                              |....................                                                  |  29%
+  |                                                                              |......................                                                |  31%
+  |                                                                              |.......................                                               |  32%
+  |                                                                              |........................                                              |  34%
+Received single location.
+  |                                                                              |.........................                                             |  35%
+  |                                                                              |..........................                                            |  37%
+  |                                                                              |...........................                                           |  38%
+  |                                                                              |............................                                          |  40%
+  |                                                                              |.............................                                         |  42%
+  |                                                                              |..............................                                        |  43%
+  |                                                                              |...............................                                       |  45%
+  |                                                                              |................................                                      |  46%
+  |                                                                              |.................................                                     |  48%
+  |                                                                              |..................................                                    |  49%
+  |                                                                              |....................................                                  |  51%
+  |                                                                              |.....................................                                 |  52%
+  |                                                                              |......................................                                |  54%
+  |                                                                              |.......................................                               |  55%
+  |                                                                              |........................................                              |  57%
+  |                                                                              |.........................................                             |  58%
+  |                                                                              |..........................................                            |  60%
+  |                                                                              |...........................................                           |  62%
+  |                                                                              |............................................                          |  63%
+  |                                                                              |.............................................                         |  65%
+  |                                                                              |..............................................                        |  66%
+  |                                                                              |...............................................                       |  68%
+  |                                                                              |................................................                      |  69%
+  |                                                                              |..................................................                    |  71%
+  |                                                                              |...................................................                   |  72%
+  |                                                                              |....................................................                  |  74%
+  |                                                                              |.....................................................                 |  75%
+  |                                                                              |......................................................                |  77%
+Trying to fetch from UCSC directly.
+
+Downloading knownGene ...
+Wrote  knownGene  track to: 
+  |                                                                              |.......................................................               |  78%
+  |                                                                              |........................................................              |  80%
+  |                                                                              |.........................................................             |  82%
+  |                                                                              |..........................................................            |  83%
+Rows: 2 Columns: 9
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (3): X1, X6, X9
+dbl (6): X2, X3, X4, X5, X7, X8
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+  |                                                                              |...........................................................           |  85%
+  |                                                                              |............................................................          |  86%
+  |                                                                              |.............................................................         |  88%
+  |                                                                              |..............................................................        |  89%
+  |                                                                              |................................................................      |  91%
+  |                                                                              |.................................................................     |  92%
+  |                                                                              |..................................................................    |  94%
+  |                                                                              |...................................................................   |  95%
+  |                                                                              |....................................................................  |  97%
+  |                                                                              |..................................................................... |  98%
+  |                                                                              |......................................................................| 100%
+
+output file: /home/data/t020329/ngs/new_meth/results/Reports/sample_reports/SEsample_se_bt2.sorted.deduped_chg_methylKit_hg19_methylKit/index.knit.md
+
+/home/data/t020329/ngs/new_meth/results/.snakemake/conda/bcb876f12e45732883c6db397e2eec05/bin/pandoc +RTS -K512m -RTS /home/data/t020329/ngs/new_meth/results/Reports/sample_reports/SEsample_se_bt2.sorted.deduped_chg_methylKit_hg19_methylKit/index.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /home/data/t020329/ngs/new_meth/results/Reports/sample_reports/SEsample_se_bt2.sorted.deduped_chg_methylKit_hg19_final.html --lua-filter /home/data/t020329/ngs/new_meth/results/.snakemake/conda/bcb876f12e45732883c6db397e2eec05/lib/R/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /home/data/t020329/ngs/new_meth/results/.snakemake/conda/bcb876f12e45732883c6db397e2eec05/lib/R/library/rmarkdown/rmarkdown/lua/latex-div.lua --self-contained --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /home/data/t020329/ngs/new_meth/results/.snakemake/conda/bcb876f12e45732883c6db397e2eec05/lib/R/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --number-sections --variable theme=lumen --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /tmp/Rtmp5MBz1N/rmarkdown-str22a792485cb48.html --variable code_folding=hide --variable code_menu=1 
+
+Output created: Reports/sample_reports/SEsample_se_bt2.sorted.deduped_chg_methylKit_hg19_final.html
+There were 12 warnings (use warnings() to see them)
+---------- [2022-06-25 16:21:25] Done ----------

@@ -1,0 +1,8 @@
+Sample	Samtools_mqc-generalstats-samtools-flagstat_total	Samtools_mqc-generalstats-samtools-mapped_passed	Samtools_mqc-generalstats-samtools-error_rate	Samtools_mqc-generalstats-samtools-non_primary_alignments	Samtools_mqc-generalstats-samtools-reads_mapped	Samtools_mqc-generalstats-samtools-reads_mapped_percent	Samtools_mqc-generalstats-samtools-reads_properly_paired_percent	Samtools_mqc-generalstats-samtools-reads_MQ0_percent	Samtools_mqc-generalstats-samtools-raw_total_sequences	Cutadapt_mqc-generalstats-cutadapt-percent_trimmed	FastQC_mqc-generalstats-fastqc-percent_duplicates	FastQC_mqc-generalstats-fastqc-percent_gc	FastQC_mqc-generalstats-fastqc-avg_sequence_length	FastQC_mqc-generalstats-fastqc-percent_fails	FastQC_mqc-generalstats-fastqc-total_sequences
+PEsample_wgbs.bwameth	2826	1122	0.006945464	0.0	1175.0	41.57820240622788	39.631988676574665	0.0	2826.0						
+PEsample_wgbs_1										0.3251638973366025	16.772823779193203	24.0	134.56900212314224	18.181818181818183	1413.0
+PEsample_wgbs_1_val_1											16.772823779193203	24.0	133.97027600849256	18.181818181818183	1413.0
+PEsample_wgbs_2										0.40666508225725523	15.215852795470624	24.0	134.24345364472754	18.181818181818183	1413.0
+PEsample_wgbs_2_val_2											15.215852795470624	24.0	133.28591648973816	18.181818181818183	1413.0
+SEsample										0.49705770593491005	5.610724925521353	24.0	95.88182720953327	18.181818181818183	2014.0
+SEsample.bwameth	2014	791	0.002595972	0.0	792.0	39.32472691161867	0.0	0.0	2014.0						

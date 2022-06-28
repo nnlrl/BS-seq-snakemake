@@ -1,0 +1,11 @@
+running: /home/data/t020329/ngs/new_meth/results/.snakemake/conda/bd37accbd05b558956b600aae7da87f0/bin/python /home/data/t020329/ngs/new_meth/results/.snakemake/conda/bd37accbd05b558956b600aae7da87f0/bin/bwameth.py c2t /home/data/t020329/ngs/new_meth/results/02_trimming/SEsample_trimmed.fq.gz NA |bwa mem -T 40 -B 2 -L 10 -CM -R '@RG\tID:SEsample_trimmed\tSM:SEsample_trimmed' -t 6  /home/data/t020329/ngs/new_meth/resources/sample.fasta.bwameth.c2t -
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+converting reads in /home/data/t020329/ngs/new_meth/results/02_trimming/SEsample_trimmed.fq.gz,NA
+WARNING: running bwameth in single-end mode
+WARNING: 124 reads with length < 80
+       : this program is designed for long reads
+[M::process] read 2014 sequences (193778 bp)...
+[M::mem_process_seqs] Processed 2014 reads in 0.123 CPU sec, 0.021 real sec
+[main] Version: 0.7.17-r1188
+[main] CMD: bwa mem -T 40 -B 2 -L 10 -CM -R @RG\tID:SEsample_trimmed\tSM:SEsample_trimmed -t 6 /home/data/t020329/ngs/new_meth/resources/sample.fasta.bwameth.c2t -
+[main] Real time: 0.144 sec; CPU: 0.133 sec

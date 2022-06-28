@@ -1,0 +1,15 @@
+---------- [2022-06-25 16:22:45] Starting Now ----------
+Warning messages:
+1: package ‘methylKit’ was built under R version 4.0.3 
+2: package ‘GenomicRanges’ was built under R version 4.0.3 
+3: package ‘BiocGenerics’ was built under R version 4.0.3 
+4: package ‘S4Vectors’ was built under R version 4.0.3 
+5: package ‘IRanges’ was built under R version 4.0.3 
+6: package ‘GenomeInfoDb’ was built under R version 4.0.3 
+Reading tabix file.
+Received single location.
+Performing segmentation...
+null device 
+          1 
+Exporting segmentation...
+---------- [2022-06-25 16:22:54] Done ----------

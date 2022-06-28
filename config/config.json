@@ -1,0 +1,208 @@
+{
+    "DManalyses": {
+        "med1vsh2o": {
+            "context": "CpG",
+            "control_sample_groups": "H2O",
+            "treatment_sample_groups": "MED1"
+        }
+    },
+    "SAMPLES": {
+        "PEsample_wgbs": {
+            "Protocol": "WGBS",
+            "SampleID": "PEsample_wgbs",
+            "Treatment": "H2O",
+            "fastq_name": [
+                "PE_1",
+                "PE_2"
+            ],
+            "files": [
+                "PE_1.fq.gz",
+                "PE_2.fq.gz"
+            ]
+        },
+        "SEsample": {
+            "Protocol": "WGBS",
+            "SampleID": "SEsample",
+            "Treatment": "MED1",
+            "fastq_name": [
+                "SE_techrep1"
+            ],
+            "files": [
+                "SE_techrep1.fq.gz"
+            ]
+        }
+    },
+    "execution": {
+        "jobs": 6,
+        "nice": 19,
+        "rules": {
+            "__default__": {
+                "memory": "10G",
+                "threads": 1
+            },
+            "bismark_align_and_map": {
+                "memory": "19G",
+                "threads": 6
+            },
+            "bwameth_align_trimmed": {
+                "memory": "20G",
+                "threads": 12
+            },
+            "diffmeth": {
+                "memory": "30G",
+                "threads": 1
+            },
+            "export_tabix_bigwig": {
+                "memory": "8G",
+                "threads": 8
+            },
+            "fastqc": {
+                "memory": "16G",
+                "threads": 6
+            },
+            "final_report": {
+                "memory": "40G",
+                "threads": 1
+            },
+            "methyldackel_extract": {
+                "memory": "6G",
+                "threads": 4
+            },
+            "samblaster_markdup_sort": {
+                "memory": "2G",
+                "threads": 12
+            },
+            "samtools_sort_bam": {
+                "memory": "12G",
+                "threads": 12
+            },
+            "sort_index_bam_bwameth": {
+                "memory": "12G",
+                "threads": 12
+            },
+            "trim_galore": {
+                "memory": "16G",
+                "threads": 6
+            }
+        },
+        "target": null
+    },
+    "general": {
+        "assembly": "hg19",
+        "differential-methylation": {
+            "annotation": {
+                "cpgIsland-bedfile": "",
+                "refGenes-bedfile": "",
+                "webfetch": false
+            },
+            "cores": 1,
+            "difference": 25,
+            "qvalue": 0.01
+        },
+        "export-bigwig": {
+            "context": {
+                "chg": {
+                    "destrand": false,
+                    "export": false
+                },
+                "chh": {
+                    "destrand": false,
+                    "export": false
+                },
+                "cpg": {
+                    "destrand": true,
+                    "export": true
+                }
+            }
+        },
+        "methylation-calling": {
+            "keep-duplicates": "Auto",
+            "keep-singleton": false,
+            "minimum-coverage": 10,
+            "minimum-quality": 10
+        },
+        "reports": {
+            "TSS_plotlength": 5000
+        },
+        "use_bismark": true,
+        "use_bwameth": true
+    },
+    "locations": {
+        "genome-fasta": "/home/data/t020329/ngs/new_meth/resources/sample.fasta",
+        "input-dir": "/home/data/t020329/ngs/new_meth/sra",
+        "output-dir": "/home/data/t020329/ngs/new_meth/results",
+        "sample-sheet": "/home/data/t020329/ngs/new_meth/config/sample_sheet.csv",
+        "workdir": "/home/data/t020329/ngs/new_meth"
+    },
+    "tools": {
+        "Rscript": {
+            "args": "--vanilla",
+            "executable": "Rscript"
+        },
+        "bismark": {
+            "args": " -N 0 -L 20 ",
+            "cores": 3,
+            "executable": "bismark"
+        },
+        "bismark_genome_preparation": {
+            "args": "",
+            "executable": "bismark_genome_preparation"
+        },
+        "bowtie2": {
+            "args": "",
+            "executable": "bowtie2"
+        },
+        "bowtie2-inspect": {
+            "args": "",
+            "executable": "bowtie2-inspect"
+        },
+        "bwameth": {
+            "args": "",
+            "executable": "bwameth.py"
+        },
+        "cut": {
+            "args": "",
+            "executable": "cut"
+        },
+        "cutadapt": {
+            "args": "",
+            "executable": "cutadapt"
+        },
+        "deduplicate-bismark": {
+            "args": "",
+            "executable": "deduplicate-bismark"
+        },
+        "fastqc": {
+            "args": "",
+            "executable": "fastqc"
+        },
+        "grep": {
+            "args": "",
+            "executable": "grep"
+        },
+        "methyldackel": {
+            "args": "",
+            "executable": "MethylDackel"
+        },
+        "multiqc": {
+            "args": "",
+            "executable": "multiqc"
+        },
+        "samblaster": {
+            "args": "",
+            "executable": "samblaster"
+        },
+        "samtools": {
+            "args": "",
+            "executable": "samtools"
+        },
+        "sed": {
+            "args": "",
+            "executable": "sed"
+        },
+        "trim_galore": {
+            "args": "",
+            "executable": "trim_galore"
+        }
+    }
+}

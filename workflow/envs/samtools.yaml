@@ -1,0 +1,6 @@
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - samtools == 1.11
+  - samblaster == 0.1.24

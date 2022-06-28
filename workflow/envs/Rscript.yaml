@@ -1,0 +1,32 @@
+channels:
+  - anaconda-fusion
+  - defaults
+  - bioconda
+  - r
+  - pypi
+  - conda-forge
+dependencies:
+  - r-base==4.0
+  - pandoc
+  - r-essentials
+  - r-data.table
+  - r-rlang
+  - r-rmarkdown
+  - r-ggplot2
+  - r-ggrepel
+  - r-dt
+  - r-pheatmap
+  - r-corrplot
+  - r-reshape2
+  - r-plotly
+  - r-scales
+  - r-crosstalk
+  - r-gprofiler2
+  - r-ggpubr
+  - r-lifecycle
+  - bioconductor-ggbio
+  - bioconductor-methylkit
+  - bioconductor-genomation
+  - bioconductor-rtracklayer=1.50
+  - bioconductor-annotationhub
+  - bioconductor-genomicranges

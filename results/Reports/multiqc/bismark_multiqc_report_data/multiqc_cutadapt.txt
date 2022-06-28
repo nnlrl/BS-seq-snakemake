@@ -1,0 +1,4 @@
+Sample	cutadapt_version	r_processed	r_with_adapters	r_written	bp_processed	quality_trimmed	bp_written	percent_trimmed
+PEsample_wgbs_1	4.1	1413	291	1413	190058	232	189440	0.3251638973366025
+PEsample_wgbs_2	4.1	1413	510	1413	189345	256	188575	0.40666508225725523
+SEsample	4.1	2014	615	2014	194746	118	193778	0.49705770593491005
