@@ -45,6 +45,8 @@ rule methyldackel_extract_methylKit:
         config['execution']['rules']['methyldackel_extract']['threads']
     conda:
         "../envs/methyldackel.yaml"
+    resources:
+        mem_mb = config["execution"]["rules"]["methyldackel_extract"]["memory"]
     shell:
         nice("methyldackel",
              ["extract", "{input.genome}", "{input.bamfile}",
@@ -78,6 +80,8 @@ rule methyldackel_extract_methylKit_deduped:
         config['execution']['rules']['methyldackel_extract']['threads']
     conda:
         "../envs/methyldackel.yaml"
+    resources:
+        mem_mb = config["execution"]["rules"]["methyldackel_extract"]["memory"]
     shell:
         nice("methyldackel",
              ["extract", "{input.genome}", "{input.bamfile}",
@@ -143,6 +147,8 @@ rule methyldackel_cytosine_report:
         config['execution']['rules']['methyldackel_extract']['threads']
     conda:
         "../envs/methyldackel.yaml"
+    resources:
+        mem_mb = config["execution"]["rules"]["methyldackel_extract"]["memory"]
     shell:
         nice("methyldackel",
              ["extract", "{input.genome}", "{input.bamfile}",

@@ -50,6 +50,13 @@ group.add_argument(
     help="Start the pipeline using config/settings.yaml and config/sample_sheet.csv",
 )
 
+group.add_argument(
+    "--clean",
+    dest="clean",
+    action="store_true",
+    help="Clean up previous output files.",
+)
+
 parser.add_argument(
     "-c",
     "--configfile",
@@ -227,15 +234,9 @@ def generate_config(configfile, sample_sheet, settingsfile, dirs=None):
     """
     # Load defaults
     defaults = path.join(WORKDIR, "config", "settings.yaml")
-    # if os.getenv('PIGX_UNINSTALLED'):
-    #     where = os.getenv('srcdir') if os.getenv('srcdir') else '.'
-    #     defaults = path.join(where, 'etc/settings.yaml')
-    # else:
-    #     defaults = path.join(dirs['locations']['pkgdatadir'], 'settings.yaml')
-
     if not path.exists(defaults):
         bail(
-            "Could not find default settings.  Did you forget to set PIGX_UNINSTALLED?"
+            "Could not find default settings. You need to determine the file path of settings.yaml."
         )
 
     settings = yaml.safe_load(open(defaults, "r"))
@@ -347,62 +348,36 @@ def prepare_links():
         flist = config["SAMPLES"][sample]["files"]
         single_end = len(flist) == 1
 
-        for idx, f in enumerate(flist):
-            if not f.endswith(".gz"):
-                # FIXME: Future versions should handle unzipped .fq or .bz2.
-                bail("Input files must be gzipped: %s." % f)
+        # TODO: trimming
+        if not config["general"]["trimming"]:
+            for idx, f in enumerate(flist):
+                if not f.endswith(".gz"):
+                    # FIXME: Future versions should handle unzipped .fq or .bz2.
+                    bail("Input files must be gzipped: %s." % f)
 
-            tag = "" if single_end else "_" + str(idx + 1)
-            linkname = config["SAMPLES"][sample]["SampleID"] + tag + ".fq.gz"
-            makelink(
-                path.join(config["locations"]["input-dir"], f),
-                path.join(
-                    config["locations"]["output-dir"], "work/input/", linkname
-                ),
-            )
+                tag = "_trimmed" if single_end else f"_{str(idx+1)}_val_{str(idx+1)}"
+                linkname = config["SAMPLES"][sample]["SampleID"] + tag + ".fq.gz"
+                makelink(
+                    path.join(config["locations"]["input-dir"], f),
+                    path.join(
+                        config["locations"]["output-dir"], "work/input/", linkname
+                    ),
+                )
+        else:
+            for idx, f in enumerate(flist):
+                if not f.endswith(".gz"):
+                    # FIXME: Future versions should handle unzipped .fq or .bz2.
+                    bail("Input files must be gzipped: %s." % f)
 
-    # Ensure that we use the configured Pandoc, pandoc-citeproc
-    # ...and the configured Rscript
-    # bin = path.join(config['locations']['output-dir'], 'pigx_work/bin')
-    # if path.exists(bin): shutil.rmtree(bin)
-    # os.makedirs(bin, exist_ok=True)
-    # os.symlink('@PANDOC@', path.join(bin, "pandoc"))
-    # os.symlink('@PANDOC_CITEPROC@', path.join(bin, "pandoc-citeproc"))
-    # os.symlink('@RSCRIPT@', path.join(bin, "Rscript"))
-    # os.environ['PATH'] = path.abspath(bin) + ":" + os.environ['PATH']
-    # os.environ['PIGX_PATH'] = path.abspath(bin) + ":" + os.environ['PATH']
-    # os.environ['R_LIBS_USER'] = "/dev/null"
-    # os.environ['R_LIBS'] = "/dev/null"
+                tag = "" if single_end else "_" + str(idx + 1)
+                linkname = config["SAMPLES"][sample]["SampleID"] + tag + ".fq.gz"
+                makelink(
+                    path.join(config["locations"]["input-dir"], f),
+                    path.join(
+                        config["locations"]["output-dir"], "work/input/", linkname
+                    ),
+                )
 
-
-# dirs = {}
-# if os.getenv('PIGX_UNINSTALLED'):
-#     here = os.getenv('srcdir') if os.getenv('srcdir') else os.getcwd()
-#     dirs['locations'] = {
-#         'prefix'       : here,
-#         'exec_prefix'  : here,
-#         'libexecdir'   : here,
-#         'pkglibexecdir': here,
-#         'datarootdir'  : here,
-#         'pkgdatadir'   : here
-#     }
-# else:
-#     # Expand and store autoconf directory variables
-#     prefix = '@prefix@'
-#     exec_prefix = '@exec_prefix@'[1:].format(prefix=prefix)
-#     libexecdir = '@libexecdir@'[1:].format(exec_prefix=exec_prefix)
-#     pkglibexecdir = '{libexecdir}/@PACKAGE@'.format(libexecdir=libexecdir)
-#     datarootdir = '@datarootdir@'[1:].format(prefix=prefix)
-#     pkgdatadir = '@datadir@/@PACKAGE@'[1:].format(datarootdir=datarootdir)
-
-#     dirs['locations'] = {
-#         'prefix'       : '@prefix@',
-#         'exec_prefix'  : exec_prefix,
-#         'libexecdir'   : libexecdir,
-#         'pkglibexecdir': pkglibexecdir,
-#         'datarootdir'  : datarootdir,
-#         'pkgdatadir'   : pkgdatadir
-#     }
 
 def cleanup():
     out_dir = config["locations"]["output-dir"]
@@ -428,10 +403,6 @@ def cleanup():
 if args.init:
     init_settings = False
     init_sample_sheet = False
-    # if os.getenv('PIGX_UNINSTALLED'):
-    #     base = os.getcwd() + '/etc/'
-    # else:
-    #     base = dirs['locations']['pkgdatadir']
     base = path.join(WORKDIR, "etc")
 
     if args.init == "both":
@@ -474,7 +445,14 @@ command = [
     "--directory={}".format(config["locations"]["output-dir"]),
     "--jobs={}".format(config["execution"]["jobs"]),
     "--rerun-incomplete",
+    "--resources",
+    "mem_mb={}".format(int(config["execution"]["memory"])),
 ]
+
+
+if args.clean:
+    cleanup()
+    exit(0)
 
 
 if args.graph:
@@ -484,7 +462,6 @@ if args.graph:
         p2 = subprocess.Popen(["dot", "-Tpdf"], stdin=p1.stdout, stdout=outfile)
         p2.communicate()
 else:
-    cleanup()
     prepare_links()
     if args.conda_create_envs_only:
         command.append("--conda-create-envs-only")

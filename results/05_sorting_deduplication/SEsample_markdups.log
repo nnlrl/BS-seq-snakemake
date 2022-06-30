@@ -1,8 +1,0 @@
----------- [2022-06-25 16:20:05] Starting Now ----------
-samblaster: Version 0.1.24
-samblaster: Inputting from stdin
-samblaster: Outputting to stdout
-samblaster: Loaded 1 header sequence entries.
-samblaster: Marked 59 of 2014 (2.93%) read ids as duplicates using 3112k memory in 0.000S CPU seconds and 0S wall time.
-[bam_sort_core] merging from 0 files and 6 in-memory blocks...
----------- [2022-06-25 16:20:05] Done ----------

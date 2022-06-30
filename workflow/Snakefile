@@ -1,5 +1,9 @@
 import os
 
+# this container defines the underlying OS for each job when using the workflow
+# with --use-conda --use-singularity
+container: "docker://continuumio/miniconda3"
+
 # include function definitions and extra rules
 include: "rules/common.smk"
 validate_config(config)
@@ -25,11 +29,6 @@ DIR_final       = os.path.join(OUTDIR, "Reports/")
 
 #--- DEFINE PATHS AND FILE NAMES:
 
-
-# if os.getenv("PIGX_UNINSTALLED"):
-#     LOGOPATH = os.path.join(config['locations']['pkgdatadir'], "images/Logo_PiGx.png")
-# else:
-#     LOGOPATH = os.path.join(config['locations']['pkgdatadir'], "Logo_PiGx.png")
 
 BIBTEXPATH = "report_templates/reports.bib"
 
@@ -231,23 +230,23 @@ targets = {
 # if USEBWAMETH:
 #     d_targets.append('bwameth-mapping-stats')
 
-# TODO: 仅用于测试, 恢复空列表
 selected_targets_default = []
 do_DManalyses = "DManalyses" in config.keys()
 
 if USEBISMARK:
     # Should we perform differential analysis?
     if do_DManalyses:
-      selected_targets_default += ['final-report', 'diffmeth-report', 'bigwig', 'multiqc']
+        selected_targets_default += ['final-report', 'diffmeth-report', 'bigwig', 'multiqc']
+    #   selected_targets_default += ['bigwig']
     else:
-      selected_targets_default += ['final-report', 'bigwig', 'multiqc']
+        selected_targets_default += ['final-report', 'bigwig', 'multiqc']
 
 if USEBWAMETH:
     # Should we perform differential analysis?
     if do_DManalyses:
-      selected_targets_default += ['final-report-bwameth', 'diffmeth-report-bwameth', 'bigwig-bwameth', 'multiqc-bwameth']
+        selected_targets_default += ['final-report-bwameth', 'diffmeth-report-bwameth', 'bigwig-bwameth', 'multiqc-bwameth']
     else:
-      selected_targets_default += ['final-report-bwameth', 'bigwig-bwameth','multiqc-bwameth']
+        selected_targets_default += ['final-report-bwameth', 'bigwig-bwameth','multiqc-bwameth']
 
 # Selected output files from the above set.
 selected_targets = config['execution']['target'] or selected_targets_default

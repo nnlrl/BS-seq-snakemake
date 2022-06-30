@@ -13,6 +13,7 @@ if("--help" %in% args) {
 
       Arguments:
       --filepath        path to tabix file
+      --cores           number of processing cores
       --seqlengths_path path to chrominfo file
       --assembly        genome assembly
       --destrand        wether to merge methCalls from both strands
@@ -57,7 +58,8 @@ suppressPackageStartupMessages(expr = {
   library(data.table)
 })
 
-data.table::setDTthreads(8)
+cores <- argsL$cores
+data.table::setDTthreads(cores)
 
 # filepath        <-  "/data/local/agosdsc/projects/Animesh_bsseq/pigx-bsseq-results/06_methyl_calls/methylDackel/tabix_CpG/RP6.deduped_CpG.txt.bgz"
 # seqlengths_path <-  "/data/local/agosdsc/projects/Animesh_bsseq/pigx-bsseq-results/04_mapping/Refgen_mm9_chromlengths.csv"

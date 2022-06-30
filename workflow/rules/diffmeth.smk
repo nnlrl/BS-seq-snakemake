@@ -34,7 +34,6 @@ rule unite_meth_calls:
         assembly   = ASSEMBLY,
         context    = lambda wc: wc.context.replace("_destranded",""),
         destrand   = lambda wc: True if "destranded" in wc.context else False,
-        cores      = int(config['general']['differential-methylation']['cores']),
         outdir     = DIR_diffmeth+"{analysis}/",
         suffix     = "{analysis}_{context}_{tool}"
     log:
@@ -42,6 +41,8 @@ rule unite_meth_calls:
     message: fmt("Uniting samples for differential analysis {wildcards.analysis}")
     conda:
         "../envs/Rscript.yaml"
+    threads:
+        int(config['execution']['rules']['methUnite']['threads'])
     shell:
         nice('Rscript',
                 ["{DIR_scripts}/methUnite.R",
@@ -51,7 +52,7 @@ rule unite_meth_calls:
                     "--assembly={params.assembly}",
                     "--context={params.context}",
                     "--destrand={params.destrand}",
-                    "--cores={params.cores}",
+                    "--cores={threads}",
                     "--outdir={params.outdir}",
                     "--suffix={params.suffix}",
                     "--logFile={log}"],"{log}")
@@ -77,7 +78,6 @@ rule diffmeth:
         destranded = lambda wc: True if "destranded" in wc.context else False,
         treatment_group = lambda wc: config["DManalyses"][wc.analysis]["treatment_sample_groups"],
         control_group = lambda wc: config["DManalyses"][wc.analysis]["control_sample_groups"],
-        cores       = int(config['general']['differential-methylation']['cores']),
         methylDiff_results_suffix   = "full",
         outdir     = DIR_diffmeth+"{analysis}/"
     log:
@@ -85,6 +85,8 @@ rule diffmeth:
     message: fmt("Calculating differential methylation for analysis {wildcards.analysis}")
     conda:
         "../envs/Rscript.yaml"
+    threads:
+        int(config['execution']['rules']['diffmeth']['threads'])
     shell:
         nice('Rscript',
                 ['{DIR_scripts}/methDiff.R',
@@ -96,7 +98,7 @@ rule diffmeth:
                     '--destranded={params.destranded}',
                     '--treatment_group={params.treatment_group}',
                     '--control_group={params.control_group}',
-                    '--cores={params.cores}',
+                    '--cores={threads}',
                     '--methylDiff_results_suffix={params.methylDiff_results_suffix}',
                     '--resultsFile={output.results_file}',
                     "--outdir={params.outdir}",

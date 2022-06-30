@@ -1,4 +1,0 @@
-track name="meth segments " description="meth segments of SEsample_se_bt2.sorted.deduped_chh mapped to hg19" itemRgb=on
-chr1	6032	10347	1	0.737245910118251	.	6032	10347	190,190,190
-chr1	10347	10381	2	7.73504273504274	.	10347	10381	0,100,0
-chr1	10382	10693	1	1.39363437682765	.	10382	10693	154,202,154

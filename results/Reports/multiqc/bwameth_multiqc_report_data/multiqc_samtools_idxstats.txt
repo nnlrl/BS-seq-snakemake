@@ -1,3 +1,0 @@
-Sample	chr1	*
-PEsample_wgbs.bwameth	[1175, 10779]	[0, 0]
-SEsample.bwameth	[792, 10779]	[0, 0]

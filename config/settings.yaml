@@ -1,15 +1,16 @@
 locations:
-  input-dir: sra
+  input-dir: /baimoc/wangjing/ngs/meth/data/bovine_fetus
   output-dir: results
-  genome-fasta: resources/sample.fasta
+  genome-fasta: /baimoc/wangjing/genome/bovine/Bos_taurus.ARS-UCD1.2.dna.toplevel.fa
 
 general:
-  assembly: 'hg19'
+  assembly: 'bt9'
   # use one or both bisulfite aligners
   # bwameth is faster and uses less resources
-  use_bwameth: True
+  use_bwameth: False
   # bismark is gold standard and uses sensible defaults
   use_bismark: True
+  trimming: False
   methylation-calling:
     minimum-coverage: 10
     minimum-quality: 10
@@ -46,13 +47,13 @@ DManalyses:
   # The names of analyses can be anything but they have to be unique
   # for each combination of case control group comparisons.
 
-  med1vsh2o:
+  qiannaovshounao:
     # If multiple sample names are provided, they must be separated by comma.
-    treatment_sample_groups: "MED1"
-    control_sample_groups: "H2O"
+    treatment_sample_groups: "qiannao"
+    control_sample_groups: "hounao"
     # If multiple contexts are provided, they must be separated by comma.
     # context: "Cpg,CHG,CHH"
-    context: "CpG"
+    context: "CpG,CHG,CHH"
 
   # multipleTreat:
   #   treatment_sample_groups: "MED2,MED1"
@@ -64,45 +65,64 @@ DManalyses:
 
 
 execution:
-  jobs: 6
+  jobs: 32
   nice: 19
+  memory: 131072 # 128G
   rules:
     __default__:
       threads: 1
-      memory: 10G
+      memory: 10240
     fastqc:
       threads: 6
-      memory: 16G
+      memory: 16384
+    multiqc:
+      threads: 6
+      memory: 16384
     trim_galore:
-      threads: 6
-      memory: 16G
-    bismark_align_and_map:
-      threads: 6
-      memory: 19G
+      threads: 12
+      memory: 16384
+    bwameth:
+      threads: 12
+      memory: 65536
+    bismark:
+      threads: 16
+      memory: 65536
     diffmeth:
-      threads: 1
-      memory: 30G
+      threads: 8
+      memory: 32768
+    methCall:
+      threads: 8
+      memory: 65536
+    methSeg:
+      threads: 8
+      memory: 65536
+    methUnite:
+      threads: 8
+      memory: 65536
     final_report:
       threads: 1
-      memory: 40G
+      memory: 65536
     sort_index_bam_bwameth:
-      threads: 12
-      memory: 12G
+      threads: 6
+      memory: 65536
     samtools_sort_bam:
-      threads: 12
-      memory: 12G
+      threads: 6
+      memory: 65536
+    samtools_stats:
+      threads: 6
+      memory: 65536
     samblaster_markdup_sort:
       threads: 12
-      memory: 2G # memory per thread
+      memory: 65536 # memory per thread
     bwameth_align_trimmed:
       threads: 12
-      memory: 20G
+      memory: 65536
     methyldackel_extract:
-      threads: 4
-      memory: 6G
+      threads: 6
+      memory: 65536
     export_tabix_bigwig:
       threads: 8
-      memory: 8G
+      memory: 65536
 
 tools:
   fastqc:
@@ -126,7 +146,6 @@ tools:
   bismark:
     executable: "bismark"
     args: " -N 0 -L 20 "
-    cores: 3
   deduplicate-bismark:
     executable: "deduplicate-bismark"
     args: ""

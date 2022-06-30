@@ -1,7 +1,0 @@
----------- [2022-06-25 16:20:29] Starting Now ----------
-read file </home/data/t020329/ngs/new_meth/results/06_methyl_calls/methylDackel/SEsample.deduped_methyldackel_CpG.methylKit> into methylKit object
-Received single location.
-Reading file.
-compressing the file with bgzip...
-making tabix index...
----------- [2022-06-25 16:20:38] Done ----------

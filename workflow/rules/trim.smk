@@ -45,3 +45,23 @@ rule trim_reads_pe:
         config["execution"]["rules"]["trim_galore"]["threads"]
     shell:
         nice('trim_galore', ["-j {threads}", "{params}", "{input.files}"], "{log}")
+
+
+rule no_trim_pe:
+    input:
+        files = [ PATHIN+"{sample}_1_val_1.fq.gz",
+                  PATHIN+"{sample}_2_val_2.fq.gz"]
+    output:
+        DIR_trimmed + "{sample}_1_val_1.fq.gz",
+        DIR_trimmed + "{sample}_2_val_2.fq.gz",
+    shell:
+        "ln -s {input[0]} {output[0]};ln -s {input[1]} {output[1]}"
+
+
+rule no_trim_se:
+    input:
+        files = PATHIN+"{sample}_trimmed.fq.gz"
+    output:
+        DIR_trimmed + "{sample}_trimmed.fq.gz"
+    shell:
+        "ln -s {input} {output}"

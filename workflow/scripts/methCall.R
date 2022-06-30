@@ -1,25 +1,4 @@
-# PiGx BSseq Pipeline.
-#
-# Copyright © 2018 Alexander Gosdschan <alexander.gosdschan@mdc-berlin.de>
-# Copyright © 2019 Alexander Blume <alexander.blume@mdc-berlin.de>
-#
-# This file is part of the PiGx BSseq Pipeline.
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 #methCall.R - takes a bismark bam file and exports methylKit tabix file
-# ---last updated Sep. 2019 by A. Blume
 
 
 
@@ -39,6 +18,7 @@ if("--help" %in% args) {
       Arguments:
       --inBam location of input bam file
       --assembly assembly used to map the reads
+      --cores number of cores to use for methCall
       --mincov minimum coverage (default: 10)
       --minqual minimum base quality (default: 20)
       --context cytosine context to extract
@@ -73,10 +53,13 @@ sink(out, type = "message")
 ### Methylation Calling
 
 ## load methylKit
+cores <- argsL$cores
+
 suppressPackageStartupMessages(expr = {
 library("methylKit")
-data.table::setDTthreads(8)
+data.table::setDTthreads(cores)
 })
+
 
 input     <- argsL$inBam
 assembly  <- argsL$assembly

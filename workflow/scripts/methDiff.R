@@ -1,13 +1,3 @@
-# This file was inspired by
-# https://github.com/katwre/makeWGBSnake/blob/master/Scripts/MethDiff.R
-# taken from
-
-# WGBS pipeline
-#
-# Copyright © 2018 Katarzyna Wreczycka katarzyna.wreczycka@mdc-berlin.de
-# This pipeline is heavily based on the PiGx BSseq pipeline github.com/BIMSBbioinfo/pigx_bsseq
-
-
 # methDiff.R - takes a methylKit methylBaseDB tabix file and performs
 # 	differential methylation testing
 # ---last updated Oct. 2019 by A. Blume

@@ -1,5 +1,0 @@
-[bam_sort_core] merging from 0 files and 6 in-memory blocks...
-blaster: Outputting to stdout
-samblaster: Loaded 1 header sequence entries.
-samblaster: Removed 104 of 545 (19.08%) read ids as duplicates using 3096k memory in 0.000S CPU seconds and 0S wall time.
----------- [2022-06-25 16:21:56] Done ----------

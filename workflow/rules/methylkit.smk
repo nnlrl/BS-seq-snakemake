@@ -17,10 +17,13 @@ rule bam_methCall:
     message: fmt("Extract methylation calls from bam file.")
     conda:
         "../envs/Rscript.yaml"
+    threads:
+        int(config["execution"]["rules"]["methCall"]["threads"])
     shell:
         nice('Rscript', ["{DIR_scripts}/methCall.R",
                          "--inBam={input.bamfile}",
                          "--assembly={params.assembly}",
+                         "--cores={threads}",
                          "--mincov={params.mincov}",
                          "--minqual={params.minqual}",
                          "--context={params.context}",

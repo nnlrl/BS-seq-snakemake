@@ -1,171 +1,0 @@
----------- [2022-06-25 16:22:47] Starting Now ----------
-========= Given Parameters ==========
-$reportFile
-[1] "/home/data/t020329/ngs/new_meth/workflow/report_templates/diffmeth.Rmd"
-
-$outFile
-[1] "/home/data/t020329/ngs/new_meth/results/Reports/med1vsh2o/med1vsh2o_cpg_destranded_methylKit.diffmeth-report.html"
-
-$workdir
-[1] "/home/data/t020329/ngs/new_meth/results/Reports/med1vsh2o"
-
-$prefix
-[1] "med1vsh2o_cpg_destranded_methylKit"
-
-$report.params
-[1] "{\"sampleids\":\"PEsample_wgbs,SEsample\",\"treatments\":\"H2O,MED1\",\"assembly\":\"hg19\",\"context\":\"cpg\",\"destranded\":\"True\",\"treatment_group\":\"MED1\",\"control_group\":\"H2O\",\"methylBase_file\":\"/home/data/t020329/ngs/new_meth/results/09_differential_methylation/med1vsh2o/methylBase_med1vsh2o_cpg_destranded_methylKit.txt.bgz\",\"methylDiff_file\":\"/home/data/t020329/ngs/new_meth/results/09_differential_methylation/med1vsh2o/methylDiff_med1vsh2o_cpg_destranded_methylKit_full.txt.bgz\",\"methylDiff_results_file\":\"/home/data/t020329/ngs/new_meth/results/09_differential_methylation/med1vsh2o/methylDiff_med1vsh2o_cpg_destranded_methylKit_results.tsv\",\"scripts_dir\":\"/home/data/t020329/ngs/new_meth/workflow/scripts\",\"cpgIsland_bedfile\":\"\",\"refGenes_bedfile\":\"\",\"chrom_seqlengths\":\"/home/data/t020329/ngs/new_meth/results/04_mapping/hg19_chromlengths.csv\",\"qvalue\":\"0.01\",\"difference\":\"25.0\",\"webfetch\":\"False\"}"
-
-$logFile
-[1] "/home/data/t020329/ngs/new_meth/results/Reports/med1vsh2o/med1vsh2o_cpg_destranded_methylKit_diffmeth-report.log"
-
-====================================
-Warning message:
-Missing values for parameters: cores 
-2022-06-25 16:22:47 
-
- Rendering report: diffmeth.Rmd 
- from template: med1vsh2o_cpg_destranded_methylKit.diffmeth-report.html 
- into directory: /home/data/t020329/ngs/new_meth/results/Reports/med1vsh2o 
-
-rendering report from template: /home/data/t020329/ngs/new_meth/workflow/report_templates/diffmeth.Rmd
-
-
-processing file: diffmeth.Rmd
-  |                                                                              |                                                                      |   0%  |                                                                              |.                                                                     |   1%
-   inline R code fragments
-
-  |                                                                              |.                                                                     |   2%
-label: global_options (with options) 
-List of 1
- $ include: logi FALSE
-
-  |                                                                              |..                                                                    |   3%
-  |                                                                              |...                                                                   |   4%
-  |                                                                              |...                                                                   |   5%
-  |                                                                              |....                                                                  |   6%
-  |                                                                              |.....                                                                 |   7%
-  |                                                                              |......                                                                |   8%
-  |                                                                              |......                                                                |   9%
-  |                                                                              |.......                                                               |  10%
-  |                                                                              |........                                                              |  11%
-  |                                                                              |........                                                              |  12%
-  |                                                                              |.........                                                             |  13%
-  |                                                                              |..........                                                            |  14%
-  |                                                                              |..........                                                            |  15%
-  |                                                                              |...........                                                           |  16%
-  |                                                                              |............                                                          |  17%
-  |                                                                              |............                                                          |  18%
-  |                                                                              |.............                                                         |  19%
-  |                                                                              |..............                                                        |  20%
-  |                                                                              |...............                                                       |  21%
-  |                                                                              |...............                                                       |  22%
-  |                                                                              |................                                                      |  23%
-  |                                                                              |.................                                                     |  24%
-  |                                                                              |.................                                                     |  25%
-  |                                                                              |..................                                                    |  26%
-  |                                                                              |...................                                                   |  27%
-  |                                                                              |...................                                                   |  28%
-  |                                                                              |....................                                                  |  29%
-  |                                                                              |.....................                                                 |  30%
-  |                                                                              |.....................                                                 |  31%
-  |                                                                              |......................                                                |  32%
-  |                                                                              |.......................                                               |  33%
-  |                                                                              |........................                                              |  34%
-  |                                                                              |........................                                              |  35%
-  |                                                                              |.........................                                             |  36%
-Loading required package: ggbio
-Registered S3 method overwritten by 'GGally':
-  method from   
-  +.gg   ggplot2
-Need specific help about ggbio? try mailing 
- the maintainer or visit http://tengfei.github.com/ggbio/
-
-Attaching package: 'ggbio'
-
-The following objects are masked from 'package:ggplot2':
-
-    geom_bar, geom_rect, geom_segment, ggsave, stat_bin, stat_identity,
-    xlim
-
-Scale for 'x' is already present. Adding another scale for 'x', which will
-replace the existing scale.
-Scale for 'x' is already present. Adding another scale for 'x', which will
-replace the existing scale.
-Scale for 'x' is already present. Adding another scale for 'x', which will
-replace the existing scale.
-  |                                                                              |..........................                                            |  37%
-  |                                                                              |..........................                                            |  38%
-  |                                                                              |...........................                                           |  39%
-  |                                                                              |............................                                          |  40%
-  |                                                                              |............................                                          |  41%
-  |                                                                              |.............................                                         |  42%
-  |                                                                              |..............................                                        |  43%
-  |                                                                              |..............................                                        |  44%
-  |                                                                              |...............................                                       |  45%
-  |                                                                              |................................                                      |  46%
-  |                                                                              |.................................                                     |  47%
-  |                                                                              |.................................                                     |  48%
-  |                                                                              |..................................                                    |  49%
-  |                                                                              |...................................                                   |  50%
-
-  |                                                                              |....................................                                  |  51%
-  |                                                                              |.....................................                                 |  52%
-  |                                                                              |.....................................                                 |  53%
-  |                                                                              |......................................                                |  54%
-  |                                                                              |.......................................                               |  55%
-  |                                                                              |........................................                              |  56%
-  |                                                                              |........................................                              |  57%
-  |                                                                              |.........................................                             |  58%
-  |                                                                              |..........................................                            |  59%
-  |                                                                              |..........................................                            |  60%
-  |                                                                              |...........................................                           |  61%
-  |                                                                              |............................................                          |  62%
-  |                                                                              |............................................                          |  63%
-  |                                                                              |.............................................                         |  64%
-  |                                                                              |..............................................                        |  65%
-  |                                                                              |..............................................                        |  66%
-  |                                                                              |...............................................                       |  67%
-  |                                                                              |................................................                      |  68%
-  |                                                                              |.................................................                     |  69%
-  |                                                                              |.................................................                     |  70%
-  |                                                                              |..................................................                    |  71%
-  |                                                                              |...................................................                   |  72%
-  |                                                                              |...................................................                   |  73%
-  |                                                                              |....................................................                  |  74%
-  |                                                                              |.....................................................                 |  75%
-  |                                                                              |.....................................................                 |  76%
-  |                                                                              |......................................................                |  77%
-  |                                                                              |.......................................................               |  78%
-  |                                                                              |.......................................................               |  79%
-  |                                                                              |........................................................              |  80%
-  |                                                                              |.........................................................             |  81%
-  |                                                                              |..........................................................            |  82%
-  |                                                                              |..........................................................            |  83%
-  |                                                                              |...........................................................           |  84%
-  |                                                                              |............................................................          |  85%
-  |                                                                              |............................................................          |  86%
-  |                                                                              |.............................................................         |  87%
-  |                                                                              |..............................................................        |  88%
-  |                                                                              |..............................................................        |  89%
-  |                                                                              |...............................................................       |  90%
-  |                                                                              |................................................................      |  91%
-  |                                                                              |................................................................      |  92%
-  |                                                                              |.................................................................     |  93%
-  |                                                                              |..................................................................    |  94%
-  |                                                                              |...................................................................   |  95%
-  |                                                                              |...................................................................   |  96%
-  |                                                                              |....................................................................  |  97%
-  |                                                                              |..................................................................... |  98%
-  |                                                                              |..................................................................... |  99%
-  |                                                                              |......................................................................| 100%
-
-output file: /home/data/t020329/ngs/new_meth/results/Reports/med1vsh2o/med1vsh2o_cpg_destranded_methylKit/diffmeth.knit.md
-
-/home/data/t020329/ngs/new_meth/results/.snakemake/conda/bcb876f12e45732883c6db397e2eec05/bin/pandoc +RTS -K512m -RTS /home/data/t020329/ngs/new_meth/results/Reports/med1vsh2o/med1vsh2o_cpg_destranded_methylKit/diffmeth.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /home/data/t020329/ngs/new_meth/results/Reports/med1vsh2o/med1vsh2o_cpg_destranded_methylKit.diffmeth-report.html --lua-filter /home/data/t020329/ngs/new_meth/results/.snakemake/conda/bcb876f12e45732883c6db397e2eec05/lib/R/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /home/data/t020329/ngs/new_meth/results/.snakemake/conda/bcb876f12e45732883c6db397e2eec05/lib/R/library/rmarkdown/rmarkdown/lua/latex-div.lua --self-contained --variable bs3=TRUE --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /home/data/t020329/ngs/new_meth/results/.snakemake/conda/bcb876f12e45732883c6db397e2eec05/lib/R/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --number-sections --variable theme=lumen --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /tmp/RtmpVssxwA/rmarkdown-str2378bb30dcbd66.html --variable code_folding=hide --variable code_menu=1 
-
-Output created: Reports/med1vsh2o/med1vsh2o_cpg_destranded_methylKit.diffmeth-report.html
-Warning messages:
-1: In methSeg(methylDiff) :
-  segmentation produced only one range, no mixture modeling possible.
-2: package 'ggbio' was built under R version 4.0.3 
----------- [2022-06-25 16:23:11] Done ----------
